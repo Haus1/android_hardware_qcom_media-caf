@@ -18,7 +18,6 @@
 #include <media/hardware/MetadataBufferType.h>
 
 namespace android {
-
     typedef struct encoder_media_buffer_type {
         MetadataBufferType buffer_type;
         buffer_handle_t meta_handle;
