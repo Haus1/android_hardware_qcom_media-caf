@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-//#define LOG_NDEBUG 0
+#define LOG_NDEBUG 0
 #define LOG_TAG "DashCodec"
 
 #include "DashCodec.h"
@@ -43,8 +43,8 @@
 
 //Smmoth streaming settings
 //Max resolution 1080p
-#define MAX_WIDTH 1920;
-#define MAX_HEIGHT 1080;
+#define MAX_WIDTH 1280;
+#define MAX_HEIGHT 720;
 
 //Min resolution QVGA
 #define MIN_WIDTH 480;
@@ -2230,9 +2230,8 @@ void DashCodec::sendFormatChange() {
             CHECK_GE(rect->nHeight, 0u);
             CHECK_LE(rect->nLeft + rect->nWidth - 1, videoDef->nFrameWidth);
             CHECK_LE(rect->nTop + rect->nHeight - 1, videoDef->nFrameHeight);
-
-            if( mSmoothStreaming ) {
 #ifdef QCOM_BSP
+            if( mSmoothStreaming ) {
                //call Update buffer geometry here
                /* ALOGE("Calling native window update buffer geometry");
                 status_t err = mNativeWindow.get()->perform(mNativeWindow.get(),
@@ -2243,7 +2242,7 @@ void DashCodec::sendFormatChange() {
                }*/
 
            }
-
+#ENDIF
             notify->setRect(
                     "crop",
                     rect->nLeft,
