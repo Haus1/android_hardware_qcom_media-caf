@@ -2198,7 +2198,7 @@ void DashCodec::sendFormatChange() {
             notify->setInt32("stride", videoDef->nStride);
             notify->setInt32("slice-height", videoDef->nSliceHeight);
             notify->setInt32("color-format", videoDef->eColorFormat);
-            ALOGE("sendformatchange: %d %d", videoDef->nFrameWidth, videoDef->nFrameHeight);
+            ALOGE("sendformatchange: %d %d", (int)videoDef->nFrameWidth, (int)videoDef->nFrameHeight);
             OMX_CONFIG_RECTTYPE* rect;
             bool hasValidCrop = true;
             if (useCachedConfig) {
@@ -2242,7 +2242,7 @@ void DashCodec::sendFormatChange() {
                }*/
 
            }
-#ENDIF
+#endif
             notify->setRect(
                     "crop",
                     rect->nLeft,
